@@ -67,8 +67,11 @@ export default function Home() {
         </div>
 
         {/* Glows radiais ambientais */}
-        <div className="pointer-events-none absolute -left-40 top-1/3 h-[34rem] w-[34rem] rounded-full bg-emerald-500/15 blur-[130px]" />
-        <div className="pointer-events-none absolute -right-32 top-10 h-[26rem] w-[26rem] rounded-full bg-champagne-300/10 blur-[120px]" />
+        <div className="glow-breathe pointer-events-none absolute -left-40 top-1/3 h-[34rem] w-[34rem] rounded-full bg-emerald-500/15 blur-[130px]" />
+        <div
+          className="glow-breathe pointer-events-none absolute -right-32 top-10 h-[26rem] w-[26rem] rounded-full bg-champagne-300/10 blur-[120px]"
+          style={{ animationDelay: "-4.5s" }}
+        />
 
         <div className="relative z-10 mx-auto w-full max-w-container px-5 sm:px-6">
           <div className="max-w-2xl">
@@ -88,7 +91,7 @@ export default function Home() {
               className="mt-7 text-balance font-display text-[2.7rem] font-semibold leading-[1.05] tracking-tightest text-ink-100 sm:text-6xl md:text-[4.3rem]"
             >
               Compramos a{" "}
-              <span className="text-emerald-grad">história</span>
+              <span className="shimmer-emerald">história</span>
               <br className="hidden sm:block" /> que guarda{" "}
               <span className="font-serif italic text-champagne-200">em casa</span>
             </h1>

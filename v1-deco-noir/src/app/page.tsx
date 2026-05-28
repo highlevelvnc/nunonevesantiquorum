@@ -59,7 +59,7 @@ export default function Home() {
             data-reveal-delay="80"
             className="text-balance font-display text-4xl font-bold leading-[1.12] text-gold-100 sm:text-5xl md:text-6xl"
           >
-            Compramos a <span className="text-gold">história</span>
+            Compramos a <span className="shimmer-gold">história</span>
             <br />
             que guarda em casa
           </h1>
@@ -129,7 +129,9 @@ export default function Home() {
               O que vê é apenas uma amostra. Recebemos constantemente novas peças de
               recheios de casas, heranças e coleções privadas.
             </p>
-            <div data-reveal data-reveal-delay="200" className="mx-auto mt-7 h-px w-24 bg-gold-500/50" />
+            <div data-reveal data-reveal-delay="200" className="deco-rule mx-auto mt-7">
+              <i />
+            </div>
           </div>
 
           <div className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
@@ -172,6 +174,9 @@ export default function Home() {
             <h2 data-reveal data-reveal-delay="80" className="mt-4 font-display text-3xl font-bold text-gold-100 sm:text-4xl md:text-5xl">
               Simples, rápido e <span className="text-gold">transparente</span>
             </h2>
+            <div data-reveal data-reveal-delay="160" className="deco-rule mx-auto mt-7">
+              <i />
+            </div>
           </div>
 
           <div className="mt-16 grid gap-px md:grid-cols-4">

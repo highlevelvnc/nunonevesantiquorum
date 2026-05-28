@@ -43,8 +43,8 @@ export default function Home() {
               className="mt-7 text-balance font-display text-[2.7rem] font-medium leading-[1.05] tracking-[-0.01em] text-ink-950 sm:text-6xl lg:text-[4.4rem]"
             >
               Compramos a{" "}
-              <span className="italic text-oxblood-600">história</span> que
-              guarda em casa.
+              <span className="ed-underline italic text-oxblood-600">história</span>{" "}
+              que guarda em casa.
             </h1>
 
             <p
@@ -250,7 +250,9 @@ export default function Home() {
               className="mt-5 font-display text-4xl font-medium leading-[1.08] tracking-[-0.01em] text-ink-950 sm:text-5xl"
             >
               Simples, rápido e{" "}
-              <span className="italic text-oxblood-600">transparente</span>
+              <span className="ed-underline italic text-oxblood-600">
+                transparente
+              </span>
             </h2>
           </div>
 
@@ -408,7 +410,7 @@ export default function Home() {
             <span className="kicker">Contactos</span>
             <h2 className="mt-5 max-w-md text-balance font-display text-4xl font-medium leading-[1.08] tracking-[-0.01em] text-ink-950 sm:text-5xl">
               Vamos conversar sobre as suas{" "}
-              <span className="italic text-oxblood-600">peças</span>
+              <span className="ed-underline italic text-oxblood-600">peças</span>
             </h2>
             <p className="mt-6 max-w-sm font-sans text-base leading-relaxed text-ink-600">
               {COMPANY.location}
