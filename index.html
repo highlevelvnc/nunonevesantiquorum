@@ -2,122 +2,201 @@
 <html lang="pt-PT">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="robots" content="noindex, nofollow" />
   <title>Nuno Neves Antiquorum — escolha o seu site</title>
-  <meta name="theme-color" content="#0b0b0d" />
+  <meta name="theme-color" content="#0a0a0c" />
   <meta name="description" content="Pré-visualize as três propostas de site para a Nuno Neves Antiquorum e escolha a sua preferida." />
 
+  <link rel="icon" href="logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Cormorant+Garamond:ital,wght@1,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg: #0b0b0d;
+      --bg: #0a0a0c;
       --line: rgba(200, 162, 78, 0.18);
       --warm: #f3ece0;
       --muted: #9b9384;
       --gold: #c8a24e;
+      --gold-lite: #f0e1b0;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { overflow-x: clip; }
     body {
       background:
-        radial-gradient(120% 70% at 50% -10%, rgba(200, 162, 78, 0.12), transparent 60%),
-        var(--bg);
+        radial-gradient(110% 60% at 50% -8%, rgba(200, 162, 78, 0.14), transparent 58%),
+        radial-gradient(70% 44% at 88% 6%, rgba(125, 95, 42, 0.10), transparent 62%),
+        linear-gradient(180deg, #0b0b0e 0%, #070708 64%);
       color: var(--warm);
       font-family: "Work Sans", system-ui, sans-serif;
       -webkit-font-smoothing: antialiased;
       min-height: 100vh;
       line-height: 1.5;
     }
-    .wrap { max-width: 1340px; margin: 0 auto; padding: 0 26px; }
+
+    /* mobile-first container */
+    .wrap { max-width: 1340px; margin: 0 auto; padding: 0 18px; }
+    @media (min-width: 760px) { .wrap { padding: 0 26px; } }
 
     /* banner modo local */
     .banner {
       background: #2a1d06; border-bottom: 1px solid rgba(200, 162, 78, 0.4);
-      color: #f0e1b0; text-align: center; font-size: 13px;
+      color: #f0e1b0; text-align: center; font-size: 12.5px;
       letter-spacing: 0.02em; padding: 9px 16px;
     }
     .banner code { font-family: ui-monospace, Menlo, monospace; color: #f8efce; }
 
     /* header */
-    header { text-align: center; padding: 56px 0 8px; }
-    header img.logo { width: 76px; height: auto; margin: 0 auto 20px; filter: drop-shadow(0 8px 26px rgba(200, 162, 78, 0.28)); }
-    .brand { font-family: "Cinzel", serif; font-weight: 600; font-size: clamp(25px, 4.4vw, 40px); letter-spacing: 0.06em; color: #f4e9c6; }
-    .brand span { color: var(--gold); }
-    .tagline { font-family: "Cormorant Garamond", Georgia, serif; font-style: italic; font-size: clamp(16px, 2.4vw, 21px); color: #d8c79c; margin-top: 8px; }
-    .intro { max-width: 580px; margin: 18px auto 0; color: var(--muted); font-size: 15px; }
-
-    /* grid de previews */
-    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; padding: 46px 0 26px; }
-    @media (max-width: 1000px) { .grid { grid-template-columns: 1fr; max-width: 600px; margin: 0 auto; } }
-
-    .card {
-      opacity: 0; transform: translateY(24px);
-      animation: rise 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    header { text-align: center; padding: clamp(38px, 9vw, 70px) 0 6px; }
+    .eyebrow {
+      display: flex; align-items: center; justify-content: center; gap: 13px;
+      color: var(--gold); font-size: 10.5px; letter-spacing: 0.34em;
+      text-transform: uppercase; margin-bottom: 22px;
     }
-    .card:nth-child(1) { animation-delay: 0.05s; }
-    .card:nth-child(2) { animation-delay: 0.15s; }
-    .card:nth-child(3) { animation-delay: 0.25s; }
-    @keyframes rise { to { opacity: 1; transform: none; } }
+    .eyebrow::before, .eyebrow::after {
+      content: ""; height: 1px; width: clamp(26px, 9vw, 64px);
+      background: linear-gradient(90deg, transparent, var(--line));
+    }
+    .eyebrow::after { background: linear-gradient(90deg, var(--line), transparent); }
+
+    .logoWrap { position: relative; display: inline-flex; margin: 0 auto 22px; }
+    .logoWrap::before {
+      content: ""; position: absolute; inset: -30%; border-radius: 50%;
+      background: radial-gradient(circle, rgba(200, 162, 78, 0.36), transparent 68%);
+      filter: blur(10px); z-index: 0;
+      animation: halo 5.5s ease-in-out infinite;
+    }
+    @keyframes halo { 0%, 100% { opacity: 0.55; transform: scale(0.94); } 50% { opacity: 1; transform: scale(1.05); } }
+    header img.logo {
+      position: relative; z-index: 1;
+      width: clamp(86px, 16vw, 108px); height: auto;
+      filter: drop-shadow(0 10px 30px rgba(200, 162, 78, 0.3));
+    }
+
+    .brand {
+      font-family: "Cinzel", serif; font-weight: 600;
+      font-size: clamp(26px, 6.4vw, 42px); letter-spacing: 0.06em;
+      background: linear-gradient(100deg, #f4e9c6 0%, #fff7dc 26%, #c8a24e 50%, #fff7dc 73%, #f4e9c6 100%);
+      background-size: 220% auto; -webkit-background-clip: text; background-clip: text;
+      color: transparent; animation: shimmer 7s linear infinite;
+    }
+    @keyframes shimmer { to { background-position: 220% center; } }
+    .tagline {
+      font-family: "Cormorant Garamond", Georgia, serif; font-style: italic;
+      font-size: clamp(17px, 4.2vw, 22px); color: #d8c79c; margin-top: 10px;
+    }
+    .intro { max-width: 560px; margin: 16px auto 0; color: var(--muted); font-size: clamp(14px, 3.6vw, 15px); }
+
+    /* grid mobile-first */
+    .grid {
+      display: grid; grid-template-columns: 1fr; gap: 24px;
+      max-width: 600px; margin: 0 auto; padding: clamp(34px, 8vw, 48px) 0 22px;
+    }
+    @media (min-width: 1001px) {
+      .grid { grid-template-columns: repeat(3, 1fr); max-width: none; gap: 26px; }
+    }
+
+    /* reveal (visible-by-default + IO + fallback) */
+    [data-reveal] { transition: opacity 0.85s var(--ease), transform 0.85s var(--ease); }
+    [data-revealed="false"] { opacity: 0; transform: translate3d(0, 26px, 0); }
+
+    .card { position: relative; }
 
     /* moldura tipo browser */
     .browser {
-      border-radius: 14px; overflow: hidden;
-      background: #15131a;
+      position: relative; border-radius: 15px; overflow: hidden; background: #15131a;
       box-shadow: 0 30px 70px -34px rgba(0, 0, 0, 0.85), inset 0 0 0 1px rgba(255, 255, 255, 0.06);
-      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+      transition: transform 0.35s var(--ease), box-shadow 0.35s ease;
     }
+    .v1 .browser { box-shadow: 0 30px 70px -34px rgba(0,0,0,0.85), inset 0 0 0 1px rgba(200,162,78,0.16); }
+    .v3 .browser { box-shadow: 0 30px 70px -34px rgba(0,0,0,0.85), inset 0 0 0 1px rgba(67,199,141,0.16); }
     .card:hover .browser { transform: translateY(-6px); }
-    .v1 .browser:hover { box-shadow: 0 36px 80px -30px rgba(200, 162, 78, 0.45), inset 0 0 0 1px rgba(200, 162, 78, 0.4); }
-    .v2 .browser:hover { box-shadow: 0 36px 80px -30px rgba(92, 42, 38, 0.5), inset 0 0 0 1px rgba(20, 18, 16, 0.2); }
-    .v3 .browser:hover { box-shadow: 0 36px 80px -30px rgba(67, 199, 141, 0.5), inset 0 0 0 1px rgba(67, 199, 141, 0.45); }
+    .v1 .browser:hover { box-shadow: 0 38px 84px -30px rgba(200, 162, 78, 0.45), inset 0 0 0 1px rgba(200, 162, 78, 0.5); }
+    .v2 .browser:hover { box-shadow: 0 38px 84px -30px rgba(92, 42, 38, 0.5), inset 0 0 0 1px rgba(20, 18, 16, 0.22); }
+    .v3 .browser:hover { box-shadow: 0 38px 84px -30px rgba(67, 199, 141, 0.5), inset 0 0 0 1px rgba(67, 199, 141, 0.55); }
 
-    .bar { display: flex; align-items: center; gap: 7px; padding: 11px 14px; background: rgba(255, 255, 255, 0.04); border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
+    /* lustre sweep no hover */
+    .sheen {
+      position: absolute; inset: 0; z-index: 4; pointer-events: none; border-radius: 15px;
+      background: linear-gradient(105deg, transparent 32%, rgba(255, 255, 255, 0.16) 48%, transparent 64%);
+      transform: translateX(-130%);
+    }
+    .v1 .sheen { background: linear-gradient(105deg, transparent 32%, rgba(240, 225, 176, 0.22) 48%, transparent 64%); }
+    .card:hover .sheen { transform: translateX(130%); transition: transform 0.9s var(--ease); }
+
+    .bar { position: relative; z-index: 2; display: flex; align-items: center; gap: 7px; padding: 11px 14px; background: rgba(255, 255, 255, 0.04); border-bottom: 1px solid rgba(255, 255, 255, 0.06); }
     .bar i { width: 11px; height: 11px; border-radius: 50%; display: block; }
-    .bar .url { margin-left: 10px; font-size: 11.5px; letter-spacing: 0.04em; color: #9b9384; font-family: ui-monospace, Menlo, monospace; }
+    .bar .url { margin-left: 10px; font-size: 11.5px; letter-spacing: 0.04em; color: #9b9384; font-family: ui-monospace, Menlo, monospace; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 
     /* viewport da miniatura */
     .mini { position: relative; width: 100%; aspect-ratio: 16 / 10; overflow: hidden; display: block; }
-    .mini .poster { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: "Cinzel", serif; letter-spacing: 0.2em; font-size: 13px; }
+    .mini .poster { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-family: "Cinzel", serif; letter-spacing: 0.22em; font-size: 12px; }
     .mini iframe { position: absolute; top: 0; left: 0; width: 1280px; height: 800px; border: 0; transform-origin: top left; pointer-events: none; background: transparent; }
-    .mini .overlay { position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 16px; text-decoration: none; opacity: 0; transition: opacity 0.3s ease; background: linear-gradient(to top, rgba(0, 0, 0, 0.55), transparent 45%); }
+    .mini .overlay { position: absolute; inset: 0; z-index: 3; display: flex; align-items: flex-end; justify-content: center; padding-bottom: 16px; text-decoration: none; opacity: 0; transition: opacity 0.3s ease; background: linear-gradient(to top, rgba(0, 0, 0, 0.55), transparent 45%); }
     .mini:hover .overlay { opacity: 1; }
-    .mini .overlay span { font-weight: 600; font-size: 13.5px; letter-spacing: 0.04em; color: #fff; background: rgba(0, 0, 0, 0.4); border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 999px; padding: 8px 16px; backdrop-filter: blur(4px); }
+    .mini .overlay span { font-weight: 600; font-size: 13px; letter-spacing: 0.03em; color: #fff; background: rgba(0, 0, 0, 0.42); border: 1px solid rgba(255, 255, 255, 0.5); border-radius: 999px; padding: 8px 16px; backdrop-filter: blur(4px); }
 
     /* legenda do cartão */
-    .meta { padding: 22px 6px 0; display: flex; flex-direction: column; }
-    .vnum { font-size: 11px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); }
-    .concept { font-family: "Cinzel", serif; font-weight: 600; font-size: 22px; letter-spacing: 0.03em; margin-top: 7px; }
+    .meta { position: relative; padding: 20px 4px 0; display: flex; flex-direction: column; }
+    .ghost {
+      position: absolute; right: 2px; top: 4px; pointer-events: none;
+      font-family: "Cinzel", serif; font-weight: 600; font-size: 58px; line-height: 1;
+      color: rgba(255, 255, 255, 0.045);
+    }
+    .vnum { font-size: 10.5px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); }
+    .concept { font-family: "Cinzel", serif; font-weight: 600; font-size: clamp(21px, 5vw, 23px); letter-spacing: 0.03em; margin-top: 7px; }
     .v1 .concept { color: #f0e1b0; }
     .v2 .concept { color: #e8dcc4; }
     .v3 .concept { color: #9be9c7; }
     .desc { color: var(--muted); font-size: 13.5px; margin-top: 8px; line-height: 1.5; }
 
-    .open {
-      margin-top: 18px; align-self: flex-start;
-      display: inline-flex; align-items: center; gap: 9px;
-      font-weight: 600; font-size: 14px; letter-spacing: 0.03em; text-decoration: none;
-      padding: 12px 20px; border-radius: 999px;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-    .open .arr { transition: transform 0.25s ease; }
-    .open:hover { transform: translateY(-2px); }
-    .open:hover .arr { transform: translateX(4px); }
-    .v1 .open { background: linear-gradient(120deg, #e6cd88, #a8812f); color: #1a1407; }
-    .v2 .open { background: linear-gradient(120deg, #c5a86c, #9c7b3c); color: #1b1916; }
-    .v3 .open { background: linear-gradient(120deg, #43c78d, #2f9d72); color: #06150e; }
+    /* swatches de paleta */
+    .palette { display: flex; gap: 7px; margin-top: 14px; }
+    .palette i { width: 16px; height: 16px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16); }
 
-    footer { text-align: center; padding: 26px 0 60px; color: var(--muted); font-size: 13.5px; }
-    footer a { color: #c8a24e; text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
-    footer .sep { opacity: 0.4; margin: 0 10px; }
+    .open {
+      margin-top: 18px; width: 100%; justify-content: center;
+      display: inline-flex; align-items: center; gap: 9px;
+      font-weight: 600; font-size: 14.5px; letter-spacing: 0.03em; text-decoration: none;
+      padding: 14px 20px; border-radius: 999px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+    }
+    @media (min-width: 1001px) { .open { width: auto; align-self: flex-start; padding: 12px 20px; } }
+    .open .arr { transition: transform 0.25s ease; }
+    .open:hover { transform: translateY(-2px); filter: brightness(1.04); }
+    .open:hover .arr { transform: translateX(4px); }
+    .v1 .open { background: linear-gradient(120deg, #e6cd88, #a8812f); color: #1a1407; box-shadow: 0 14px 30px -14px rgba(200, 162, 78, 0.6); }
+    .v2 .open { background: linear-gradient(120deg, #c5a86c, #9c7b3c); color: #1b1916; box-shadow: 0 14px 30px -14px rgba(156, 123, 60, 0.55); }
+    .v3 .open { background: linear-gradient(120deg, #43c78d, #2f9d72); color: #06150e; box-shadow: 0 14px 30px -14px rgba(67, 199, 141, 0.55); }
+
+    /* footer */
+    footer { text-align: center; padding: 22px 0 calc(54px + env(safe-area-inset-bottom)); color: var(--muted); font-size: 13.5px; }
+    .footWa {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: #25D366; color: #062a16; font-weight: 700; letter-spacing: 0.01em;
+      padding: 13px 22px; border-radius: 999px; text-decoration: none; margin-bottom: 16px;
+      box-shadow: 0 14px 30px -14px rgba(37, 211, 102, 0.7); transition: transform 0.25s ease;
+    }
+    .footWa:hover { transform: translateY(-2px); }
+    .footWa svg { width: 18px; height: 18px; }
+    .footMeta { display: block; }
+    .footMeta .sep { opacity: 0.4; margin: 0 9px; }
+
+    /* affordance em ecrãs sem hover (telemóvel) */
+    @media (hover: none) {
+      .mini .overlay { opacity: 1; background: linear-gradient(to top, rgba(0, 0, 0, 0.46), transparent 40%); }
+      .card:hover .browser { transform: none; }
+    }
 
     @media (prefers-reduced-motion: reduce) {
-      .card { opacity: 1; transform: none; animation: none; }
-      .browser, .open, .arr, .overlay { transition: none; }
+      [data-revealed="false"] { opacity: 1; transform: none; }
+      [data-reveal], .browser, .open, .arr, .overlay, .footWa { transition: none; }
+      .brand { animation: none; }
+      .logoWrap::before { animation: none; }
+      .sheen { display: none; }
     }
   </style>
 </head>
@@ -128,79 +207,99 @@
 
   <div class="wrap">
     <header>
-      <img class="logo" src="logo.png" alt="Nuno Neves Antiquorum" />
-      <h1 class="brand">Nuno Neves <span>Antiquorum</span></h1>
+      <p class="eyebrow">Apresentação de proposta</p>
+      <span class="logoWrap"><img class="logo" src="logo.png" alt="Nuno Neves Antiquorum" /></span>
+      <h1 class="brand">Nuno Neves Antiquorum</h1>
       <p class="tagline">Compramos a história que guarda em casa.</p>
-      <p class="intro">Três propostas para o novo site. Veja cada uma em miniatura, clique para abrir em ecrã inteiro e escolha a sua preferida.</p>
+      <p class="intro">Três propostas para o novo site. Veja cada uma em miniatura, toque para abrir em ecrã inteiro e escolha a sua preferida.</p>
     </header>
 
     <main class="grid">
       <!-- V1 -->
-      <article class="card v1">
+      <article class="card v1" data-reveal>
         <div class="browser">
           <div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="url">arte-deco-noir</span></div>
           <a class="mini" data-site="v1" target="_blank" rel="noopener">
             <span class="poster" style="background:linear-gradient(160deg,#100e13,#070608);color:#c8a24e">A CARREGAR…</span>
             <iframe data-site-frame="v1" title="Pré-visualização — Art Déco Noir" loading="lazy" scrolling="no"></iframe>
-            <span class="overlay"><span>Abrir site em ecrã inteiro &rarr;</span></span>
+            <span class="overlay"><span>Abrir em ecrã inteiro &rarr;</span></span>
           </a>
+          <span class="sheen" aria-hidden="true"></span>
         </div>
         <div class="meta">
+          <span class="ghost">01</span>
           <span class="vnum">Versão 01</span>
           <h2 class="concept">Art Déco Noir</h2>
           <p class="desc">Preto e dourado, dramático e intemporal — fiel ao logótipo.</p>
+          <div class="palette" aria-hidden="true">
+            <i style="background:#0b0b0d"></i><i style="background:#c8a24e"></i><i style="background:#f0e1b0"></i>
+          </div>
           <a class="open" data-site="v1" target="_blank" rel="noopener">Abrir site <span class="arr">&rarr;</span></a>
         </div>
       </article>
 
       <!-- V2 -->
-      <article class="card v2">
+      <article class="card v2" data-reveal>
         <div class="browser">
           <div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="url">galeria-leiloeira</span></div>
           <a class="mini" data-site="v2" target="_blank" rel="noopener">
             <span class="poster" style="background:linear-gradient(160deg,#fdfbf6,#f1e9d8);color:#9c7b3c">A CARREGAR…</span>
             <iframe data-site-frame="v2" title="Pré-visualização — Galeria Leiloeira" loading="lazy" scrolling="no"></iframe>
-            <span class="overlay"><span>Abrir site em ecrã inteiro &rarr;</span></span>
+            <span class="overlay"><span>Abrir em ecrã inteiro &rarr;</span></span>
           </a>
+          <span class="sheen" aria-hidden="true"></span>
         </div>
         <div class="meta">
+          <span class="ghost">02</span>
           <span class="vnum">Versão 02</span>
           <h2 class="concept">Galeria Leiloeira</h2>
           <p class="desc">Marfim e dourado, editorial — o requinte de uma casa de leilões.</p>
+          <div class="palette" aria-hidden="true">
+            <i style="background:#f1e9d8"></i><i style="background:#9c7b3c"></i><i style="background:#1b1916"></i>
+          </div>
           <a class="open" data-site="v2" target="_blank" rel="noopener">Abrir site <span class="arr">&rarr;</span></a>
         </div>
       </article>
 
       <!-- V3 -->
-      <article class="card v3">
+      <article class="card v3" data-reveal>
         <div class="browser">
           <div class="bar"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="url">boutique-moderna</span></div>
           <a class="mini" data-site="v3" target="_blank" rel="noopener">
             <span class="poster" style="background:linear-gradient(160deg,#11281d,#08120d);color:#43c78d">A CARREGAR…</span>
             <iframe data-site-frame="v3" title="Pré-visualização — Boutique Moderna" loading="lazy" scrolling="no"></iframe>
-            <span class="overlay"><span>Abrir site em ecrã inteiro &rarr;</span></span>
+            <span class="overlay"><span>Abrir em ecrã inteiro &rarr;</span></span>
           </a>
+          <span class="sheen" aria-hidden="true"></span>
         </div>
         <div class="meta">
+          <span class="ghost">03</span>
           <span class="vnum">Versão 03</span>
           <h2 class="concept">Boutique Moderna</h2>
           <p class="desc">Verde-esmeralda e champanhe, contemporâneo — vidro fosco e luxo.</p>
+          <div class="palette" aria-hidden="true">
+            <i style="background:#08120d"></i><i style="background:#43c78d"></i><i style="background:#e8dcc4"></i>
+          </div>
           <a class="open" data-site="v3" target="_blank" rel="noopener">Abrir site <span class="arr">&rarr;</span></a>
         </div>
       </article>
     </main>
 
     <footer>
-      Apresentação · Nuno Neves Antiquorum
-      <span class="sep">·</span>
-      <a href="https://wa.me/351963863208" target="_blank" rel="noopener">WhatsApp 963 863 208</a>
-      <span class="sep">·</span>
-      Lisboa e todo o país
+      <a class="footWa" href="https://wa.me/351963863208" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163a11.867 11.867 0 01-1.587-5.945C.16 5.335 5.495 0 12.05 0a11.817 11.817 0 018.413 3.488 11.824 11.824 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 01-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 001.512 5.26l-.999 3.648 3.476-.999zm5.392-6.682c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        WhatsApp 963 863 208
+      </a>
+      <span class="footMeta">
+        Apresentação · Nuno Neves Antiquorum
+        <span class="sep">·</span>
+        Lisboa e todo o país
+      </span>
     </footer>
   </div>
 
   <script>
-    // URLs de produção (Vercel) de cada versão. Cole aqui depois do deploy de cada subpasta.
+    // URLs de produção (Vercel) de cada versão.
     const SITE_URLS = {
       v1: "https://v1-deco-noir.vercel.app",
       v2: "https://v2-galeria-leiloeira.vercel.app",
@@ -220,25 +319,59 @@
       return prod || LOCAL_URLS[key];
     }
 
-    // Liga os links (cartão + botão "Abrir site") e carrega as miniaturas.
+    // Liga os links (cartão + botão "Abrir site").
     document.querySelectorAll("[data-site]").forEach(function (el) {
       el.setAttribute("href", urlFor(el.getAttribute("data-site")));
-    });
-    document.querySelectorAll("[data-site-frame]").forEach(function (f) {
-      f.src = urlFor(f.getAttribute("data-site-frame"));
     });
     if (usingLocal) document.getElementById("localBanner").hidden = false;
 
     // Escala cada iframe (1280px lógicos) para preencher a largura da miniatura.
-    function fitFrames() {
-      document.querySelectorAll(".mini").forEach(function (box) {
-        var f = box.querySelector("iframe");
-        if (f) f.style.transform = "scale(" + box.clientWidth / 1280 + ")";
-      });
+    function fitFrame(box) {
+      var f = box.querySelector("iframe");
+      if (f) f.style.transform = "scale(" + box.clientWidth / 1280 + ")";
     }
+    function fitFrames() { document.querySelectorAll(".mini").forEach(fitFrame); }
     window.addEventListener("resize", fitFrames);
     window.addEventListener("load", fitFrames);
     fitFrames();
+
+    // Lazy-load das miniaturas: só carrega o iframe quando o cartão entra no
+    // viewport (em telemóvel evita carregar os 3 sites de uma vez). Rede de
+    // segurança a 3500 ms carrega tudo, mesmo que o IO não dispare.
+    var frames = Array.prototype.slice.call(document.querySelectorAll("[data-site-frame]"));
+    function loadFrame(f) {
+      if (f.dataset.loaded) return;
+      f.dataset.loaded = "1";
+      f.addEventListener("load", function () { fitFrame(f.closest(".mini")); });
+      f.src = urlFor(f.getAttribute("data-site-frame"));
+    }
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { loadFrame(e.target.querySelector("iframe")); io.unobserve(e.target); }
+        });
+      }, { rootMargin: "200px" });
+      document.querySelectorAll(".mini").forEach(function (m) { io.observe(m); });
+    } else {
+      frames.forEach(loadFrame);
+    }
+    setTimeout(function () { frames.forEach(loadFrame); }, 3500);
+
+    // Reveal dos cartões: visible-by-default + IO + fallback 3500 ms.
+    var cards = Array.prototype.slice.call(document.querySelectorAll("[data-reveal]"));
+    cards.forEach(function (c) { c.setAttribute("data-revealed", "false"); });
+    function revealAll() { cards.forEach(function (c) { c.setAttribute("data-revealed", "true"); }); }
+    if ("IntersectionObserver" in window) {
+      var ro = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.setAttribute("data-revealed", "true"); ro.unobserve(e.target); }
+        });
+      }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+      cards.forEach(function (c) { ro.observe(c); });
+    } else {
+      revealAll();
+    }
+    setTimeout(revealAll, 3500);
   </script>
 </body>
 </html>
