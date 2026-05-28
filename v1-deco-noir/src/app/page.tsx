@@ -32,7 +32,11 @@ export default function Home() {
   return (
     <main className="overflow-hidden bg-noir-950 bg-noise">
       {/* ============ HERO ============ */}
-      <section id="inicio" className="relative flex min-h-screen items-center justify-center">
+      <section
+        id="inicio"
+        data-spotlight
+        className="relative flex min-h-screen items-center justify-center"
+      >
         <div className="absolute inset-0">
           <Image
             src="/fotos/hero.jpg"
@@ -45,8 +49,11 @@ export default function Home() {
           <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_15%,rgba(7,6,8,0.85)_100%)]" />
         </div>
 
-        {/* Sunburst déco atrás do título */}
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[680px] w-[680px] -translate-x-1/2 -translate-y-1/2 sunburst opacity-70" />
+        {/* Holofote que segue o ponteiro (desktop) */}
+        <span aria-hidden className="fx-spot" />
+
+        {/* Sunburst déco atrás do título — rotação lenta */}
+        <div className="fx-spin-slow pointer-events-none absolute left-1/2 top-1/2 h-[680px] w-[680px] -translate-x-1/2 -translate-y-1/2 sunburst opacity-70" />
 
         <div className="relative z-10 mx-auto max-w-4xl px-6 pt-28 text-center">
           <div data-reveal className="mb-7 flex items-center justify-center gap-4">
@@ -79,10 +86,12 @@ export default function Home() {
             data-reveal-delay="240"
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-gold">
-              Pedir avaliação grátis
-              <ArrowRight className="h-4 w-4" />
-            </a>
+            <span data-magnetic className="inline-flex">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-gold">
+                Pedir avaliação grátis
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </span>
             <a href="#categorias" className="btn-ghost">
               O que compramos
             </a>
@@ -142,6 +151,7 @@ export default function Home() {
               <article
                 key={c.name}
                 data-reveal
+                data-glare
                 data-reveal-delay={`${(i % 4) * 70}`}
                 className="group relative aspect-[4/5] overflow-hidden frame-deco transition-shadow duration-500 hover:shadow-[0_28px_70px_-30px_rgba(216,183,102,0.5)]"
               >
@@ -157,6 +167,7 @@ export default function Home() {
                   aria-hidden
                   className="pointer-events-none absolute inset-0 -translate-x-full skew-x-12 bg-gradient-to-r from-transparent via-gold-100/20 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
                 />
+                <span aria-hidden className="fx-glare" />
                 <div className="absolute inset-x-0 bottom-0 p-5">
                   <h3 className="font-display text-lg font-semibold leading-tight text-gold-100">
                     {c.name}
@@ -283,7 +294,7 @@ export default function Home() {
 
       {/* ============ CTA ============ */}
       <section className="relative overflow-hidden border-y border-gold-700/40 bg-noir-900 py-20">
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 sunburst opacity-50" />
+        <div className="fx-spin-slow pointer-events-none absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 sunburst opacity-50" />
         <div className="relative mx-auto max-w-2xl px-6 text-center">
           <h2 data-reveal className="font-display text-3xl font-bold leading-tight text-gold-100 sm:text-4xl">
             Tem peças antigas para vender?
@@ -292,10 +303,12 @@ export default function Home() {
             Envie-nos uma fotografia. Respondemos no próprio dia, sem compromisso.
           </p>
           <div data-reveal data-reveal-delay="160" className="mt-8 flex justify-center">
-            <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-gold">
-              Falar agora no WhatsApp
-              <ArrowRight className="h-4 w-4" />
-            </a>
+            <span data-magnetic className="inline-flex">
+              <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="btn-gold">
+                Falar agora no WhatsApp
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </span>
           </div>
         </div>
       </section>
@@ -363,14 +376,14 @@ export default function Home() {
             <span className="relative inline-flex">
               <span
                 aria-hidden
-                className="logo-halo absolute -inset-5 rounded-full bg-gold-500/25 blur-2xl"
+                className="logo-halo absolute -inset-6 rounded-3xl bg-gold-500/25 blur-2xl"
               />
               <Image
-                src="/fotos/logo.png"
+                src="/fotos/brand.png"
                 alt={COMPANY.fullName}
-                width={176}
-                height={176}
-                className="relative h-40 w-40 rounded-full object-cover ring-1 ring-gold-600/60"
+                width={360}
+                height={240}
+                className="relative h-36 w-auto object-contain drop-shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
               />
             </span>
             <p className="max-w-md font-serif text-lg italic text-gold-100/70">

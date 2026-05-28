@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import WhatsappButton from "@/components/WhatsappButton";
 import ScrollRevealInit from "@/components/ScrollRevealInit";
 import ScrollProgress from "@/components/ScrollProgress";
+import TechFX from "@/components/TechFX";
 import Loader from "@/components/Loader";
 import { COMPANY } from "@/lib/constants";
 
@@ -87,6 +88,7 @@ export default function RootLayout({
         {children}
         <WhatsappButton />
         <ScrollRevealInit />
+        <TechFX />
       </body>
     </html>
   );

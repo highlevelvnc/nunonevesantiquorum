@@ -16,4 +16,5 @@ build/
 
 # fotos cruas do cliente (originais — já copiadas para cada public/fotos)
 _assets/
+/Design sem nome-*.png
 .vercel

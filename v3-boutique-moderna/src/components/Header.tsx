@@ -39,27 +39,19 @@ export default function Header() {
         >
           <a
             href="#inicio"
-            className="flex items-center gap-3"
+            className="flex items-center"
             aria-label={COMPANY.fullName}
           >
-            <span className="relative">
-              <span className="absolute -inset-2 rounded-full bg-emerald-500/25 blur-md" />
+            <span className="relative inline-flex">
+              <span className="absolute -inset-2 rounded-2xl bg-emerald-500/25 blur-lg" />
               <Image
-                src="/fotos/logo.png"
+                src="/fotos/brand.png"
                 alt={COMPANY.fullName}
-                width={88}
-                height={88}
-                className="relative h-20 w-20 rounded-full object-cover ring-1 ring-champagne-300/50"
+                width={300}
+                height={200}
+                className="relative h-14 w-auto object-contain drop-shadow-[0_4px_18px_rgba(0,0,0,0.5)] sm:h-16"
                 priority
               />
-            </span>
-            <span className="hidden flex-col leading-none sm:flex">
-              <span className="font-display text-xl font-semibold tracking-tight text-ink-100">
-                Nuno Neves
-              </span>
-              <span className="font-sans text-[0.7rem] font-medium uppercase tracking-widest2 text-emerald-300">
-                Antiquorum
-              </span>
             </span>
           </a>
 

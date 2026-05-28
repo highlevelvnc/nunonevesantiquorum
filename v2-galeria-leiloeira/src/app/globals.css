@@ -319,3 +319,48 @@ body {
     animation: none;
   }
 }
+
+/* ---- Efeitos "tech" (ver TechFX.tsx): luz quente a seguir o ponteiro ---- */
+/* Glare nos cards: realce de luz quente sobre a fotografia (só desktop). */
+.fx-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  background: radial-gradient(
+    280px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 247, 226, 0.34),
+    rgba(255, 247, 226, 0.08) 42%,
+    transparent 64%
+  );
+  mix-blend-mode: screen;
+}
+.fx-glare-on .fx-glare {
+  opacity: 1;
+}
+
+/* Spotlight: holofote quente — capa do hero e painel oxblood do CTA. */
+.fx-spot {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  background: radial-gradient(
+    560px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 240, 214, 0.2),
+    transparent 56%
+  );
+}
+.fx-spot-on .fx-spot {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-glare,
+  .fx-spot {
+    display: none;
+  }
+}

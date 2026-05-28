@@ -437,6 +437,65 @@ body {
   }
 }
 
+/* ---- Efeitos "tech" (ver TechFX.tsx): luz a seguir o ponteiro + rotação lenta ---- */
+/* Glare: brilho dourado radial sobre os cards (pai recebe .fx-glare-on em pointer:fine).
+   Sem z-index → pinta sobre a imagem mas por baixo do texto (que vem depois no DOM). */
+.fx-glare {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  background: radial-gradient(
+    300px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(230, 205, 136, 0.24),
+    rgba(230, 205, 136, 0.06) 40%,
+    transparent 62%
+  );
+  mix-blend-mode: screen;
+}
+.fx-glare-on .fx-glare {
+  opacity: 1;
+}
+
+/* Spotlight: holofote suave numa secção (hero), por baixo do conteúdo (z-10) */
+.fx-spot {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  background: radial-gradient(
+    620px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(216, 183, 102, 0.16),
+    transparent 55%
+  );
+}
+.fx-spot-on .fx-spot {
+  opacity: 1;
+}
+
+/* Rotação lenta do sunburst déco (sensação "tech"/cinética) */
+.fx-spin-slow {
+  animation: fxSpin 90s linear infinite;
+}
+@keyframes fxSpin {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fx-glare,
+  .fx-spot {
+    display: none;
+  }
+  .fx-spin-slow {
+    animation: none;
+  }
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 11px;

@@ -53,6 +53,7 @@ export default function Home() {
       {/* ============ HERO ============ */}
       <section
         id="inicio"
+        data-spotlight
         className="relative flex min-h-screen items-center pt-28 pb-16 sm:pt-32"
       >
         <div className="absolute inset-0">
@@ -66,6 +67,9 @@ export default function Home() {
           <div className="absolute inset-0 bg-gradient-to-r from-forest-950 via-forest-950/85 to-forest-950/45" />
           <div className="absolute inset-0 bg-gradient-to-t from-forest-950 via-transparent to-forest-950/70" />
         </div>
+
+        {/* Holofote esmeralda que segue o ponteiro (desktop) */}
+        <span aria-hidden className="fx-spot" />
 
         {/* Glows radiais ambientais */}
         <div className="glow-breathe pointer-events-none absolute -left-40 top-1/3 h-[34rem] w-[34rem] rounded-full bg-emerald-500/15 blur-[130px]" />
@@ -112,15 +116,17 @@ export default function Home() {
               data-reveal-delay="240"
               className="mt-9 flex flex-col gap-3.5 sm:flex-row sm:items-center"
             >
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary"
-              >
-                Pedir avaliação grátis
-                <ArrowUpRight className="h-4 w-4" strokeWidth={2} />
-              </a>
+              <span data-magnetic className="inline-flex">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary"
+                >
+                  Pedir avaliação grátis
+                  <ArrowUpRight className="h-4 w-4" strokeWidth={2} />
+                </a>
+              </span>
               <a href="#categorias" className="btn-glass">
                 O que compramos
               </a>
@@ -210,6 +216,7 @@ export default function Home() {
               <article
                 key={c.name}
                 data-reveal
+                data-glare
                 data-reveal-delay={`${(i % 4) * 70}`}
                 className={`group relative overflow-hidden rounded-3xl border border-emerald-600/15 bg-forest-900 shadow-glass transition-all duration-500 hover:-translate-y-1 hover:border-emerald-400/40 hover:shadow-glow-emerald ${
                   bento[i] ?? "sm:col-span-2 lg:col-span-2"
@@ -227,6 +234,7 @@ export default function Home() {
                   aria-hidden
                   className="pointer-events-none absolute inset-0 -translate-x-full skew-x-12 bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
                 />
+                <span aria-hidden className="fx-glare" />
                 <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-5">
                   <div>
                     <h3 className="font-display text-lg font-semibold leading-tight text-ink-100">
@@ -385,10 +393,14 @@ export default function Home() {
       {/* ============ CTA ============ */}
       <section className="relative py-10 sm:py-14">
         <div className="mx-auto max-w-container px-5 sm:px-6">
-          <div className="glass relative overflow-hidden rounded-4xl px-7 py-14 text-center shadow-glass sm:px-12 sm:py-16">
+          <div
+            data-spotlight
+            className="glass relative overflow-hidden rounded-4xl px-7 py-14 text-center shadow-glass sm:px-12 sm:py-16"
+          >
             <div className="pointer-events-none absolute -left-20 -top-20 h-72 w-72 rounded-full bg-emerald-500/20 blur-[110px]" />
             <div className="pointer-events-none absolute -bottom-24 -right-16 h-72 w-72 rounded-full bg-champagne-300/12 blur-[110px]" />
-            <div className="relative">
+            <span aria-hidden className="fx-spot" />
+            <div className="relative z-10">
               <h2
                 data-reveal
                 className="font-display text-3xl font-semibold leading-tight tracking-tight text-ink-100 sm:text-4xl"
@@ -408,15 +420,17 @@ export default function Home() {
                 data-reveal-delay="160"
                 className="mt-8 flex justify-center"
               >
-                <a
-                  href={WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-primary"
-                >
-                  Falar agora no WhatsApp
-                  <ArrowUpRight className="h-4 w-4" strokeWidth={2} />
-                </a>
+                <span data-magnetic className="inline-flex">
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary"
+                  >
+                    Falar agora no WhatsApp
+                    <ArrowUpRight className="h-4 w-4" strokeWidth={2} />
+                  </a>
+                </span>
               </div>
             </div>
           </div>
@@ -498,14 +512,14 @@ export default function Home() {
       <footer className="relative border-t border-emerald-600/15 py-14">
         <div className="mx-auto max-w-container px-5 sm:px-6">
           <div className="flex flex-col items-center gap-6 text-center">
-            <span className="relative">
-              <span className="glow-breathe absolute -inset-3 rounded-full bg-emerald-500/25 blur-lg" />
+            <span className="relative inline-flex">
+              <span className="glow-breathe absolute -inset-5 rounded-3xl bg-emerald-500/25 blur-xl" />
               <Image
-                src="/fotos/logo.png"
+                src="/fotos/brand.png"
                 alt={COMPANY.fullName}
-                width={160}
-                height={160}
-                className="relative h-36 w-36 rounded-full object-cover ring-1 ring-champagne-300/50"
+                width={330}
+                height={220}
+                className="relative h-32 w-auto object-contain drop-shadow-[0_10px_36px_rgba(0,0,0,0.55)]"
               />
             </span>
             <p className="max-w-md font-serif text-lg italic text-ink-200/80">

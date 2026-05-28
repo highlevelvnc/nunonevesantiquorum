@@ -5,6 +5,7 @@ import Header from "@/components/Header";
 import WhatsappButton from "@/components/WhatsappButton";
 import ScrollRevealInit from "@/components/ScrollRevealInit";
 import ScrollProgress from "@/components/ScrollProgress";
+import TechFX from "@/components/TechFX";
 import { COMPANY } from "@/lib/constants";
 
 const playfair = Playfair_Display({
@@ -86,6 +87,7 @@ export default function RootLayout({
         {children}
         <WhatsappButton />
         <ScrollRevealInit />
+        <TechFX />
       </body>
     </html>
   );

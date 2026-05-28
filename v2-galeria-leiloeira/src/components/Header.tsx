@@ -34,25 +34,17 @@ export default function Header() {
       <div className="mx-auto flex max-w-container items-center justify-between px-5 sm:px-8">
         <a
           href="#inicio"
-          className="flex items-center gap-3"
+          className="flex items-center"
           aria-label={COMPANY.fullName}
         >
           <Image
-            src="/fotos/logo.png"
+            src="/fotos/brand.png"
             alt={COMPANY.fullName}
-            width={96}
-            height={96}
-            className="h-[5.5rem] w-[5.5rem] rounded-full object-cover ring-1 ring-ink-900/10"
+            width={274}
+            height={200}
+            className="h-16 w-auto object-contain sm:h-[4.75rem]"
             priority
           />
-          <span className="hidden flex-col leading-none sm:flex">
-            <span className="font-display text-xl font-semibold tracking-wide2 text-ink-900">
-              Nuno Neves
-            </span>
-            <span className="mt-1 font-sans text-[0.68rem] uppercase tracking-widest3 text-brass-500">
-              Antiquorum
-            </span>
-          </span>
         </a>
 
         <nav className="hidden items-center gap-9 lg:flex">

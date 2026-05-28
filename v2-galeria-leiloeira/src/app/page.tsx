@@ -26,7 +26,7 @@ export default function Home() {
       {/* ============ HERO ============ */}
       <section
         id="inicio"
-        className="relative overflow-hidden bg-ivory-100 pb-16 pt-36 sm:pb-24 sm:pt-44"
+        className="relative overflow-hidden bg-ivory-100 pb-16 pt-44 sm:pb-24 sm:pt-44"
       >
         {/* filete superior decorativo */}
         <div className="pointer-events-none absolute inset-x-0 top-[5.5rem] mx-auto hidden h-px max-w-container bg-ink-900/10 lg:block" />
@@ -64,15 +64,17 @@ export default function Home() {
               data-reveal-delay="240"
               className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center"
             >
-              <a
-                href={WHATSAPP_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-ink"
-              >
-                Pedir avaliação gratuita
-                <ArrowRight className="h-4 w-4" strokeWidth={1.6} />
-              </a>
+              <span data-magnetic="0.25" className="inline-flex">
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-ink"
+                >
+                  Pedir avaliação gratuita
+                  <ArrowRight className="h-4 w-4" strokeWidth={1.6} />
+                </a>
+              </span>
               <a href="#categorias" className="btn-outline">
                 Ver o que compramos
               </a>
@@ -104,7 +106,10 @@ export default function Home() {
             className="relative mx-auto w-full max-w-md lg:max-w-none"
           >
             <div className="frame-fine">
-              <div className="frame-fine__inner aspect-[4/5]">
+              <div
+                data-spotlight
+                className="frame-fine__inner aspect-[4/5]"
+              >
                 <Image
                   src="/fotos/hero.jpg"
                   alt="Interior do antiquário Nuno Neves, em Lisboa"
@@ -113,6 +118,7 @@ export default function Home() {
                   sizes="(max-width:1024px) 90vw, 45vw"
                   className="object-cover object-center"
                 />
+                <span aria-hidden className="fx-spot" />
               </div>
             </div>
 
@@ -201,7 +207,10 @@ export default function Home() {
                 className="group"
               >
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                  <div className="relative aspect-[5/6] overflow-hidden bg-ivory-200 shadow-[0_18px_40px_-30px_rgba(20,18,16,0.4)] transition-shadow duration-500 group-hover:shadow-[0_34px_64px_-30px_rgba(20,18,16,0.5)]">
+                  <div
+                    data-glare
+                    className="relative aspect-[5/6] overflow-hidden bg-ivory-200 shadow-[0_18px_40px_-30px_rgba(20,18,16,0.4)] transition-shadow duration-500 group-hover:shadow-[0_34px_64px_-30px_rgba(20,18,16,0.5)]"
+                  >
                     <Image
                       src={c.img}
                       alt={c.name}
@@ -214,6 +223,7 @@ export default function Home() {
                       aria-hidden
                       className="pointer-events-none absolute inset-0 -translate-x-full skew-x-12 bg-gradient-to-r from-transparent via-white/35 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
                     />
+                    <span aria-hidden className="fx-glare" />
                     <span className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-ivory-50/0 text-ivory-50 opacity-0 transition-all duration-500 group-hover:bg-ivory-50 group-hover:text-ink-900 group-hover:opacity-100">
                       <ArrowUpRight className="h-4 w-4" strokeWidth={1.6} />
                     </span>
@@ -367,8 +377,12 @@ export default function Home() {
       </section>
 
       {/* ============ CTA ============ */}
-      <section className="relative overflow-hidden bg-oxblood-600 py-20 text-ivory-50 sm:py-24">
-        <div className="mx-auto max-w-2xl px-6 text-center">
+      <section
+        data-spotlight
+        className="relative overflow-hidden bg-oxblood-600 py-20 text-ivory-50 sm:py-24"
+      >
+        <span aria-hidden className="fx-spot" />
+        <div className="relative z-10 mx-auto max-w-2xl px-6 text-center">
           <span
             data-reveal
             className="font-sans text-[0.66rem] uppercase tracking-widest4 text-ivory-200/80"
@@ -395,15 +409,17 @@ export default function Home() {
             data-reveal-delay="220"
             className="mt-9 flex justify-center"
           >
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 border border-ivory-100/40 bg-ivory-50 px-8 py-4 font-sans text-xs uppercase tracking-[0.2em] text-ink-950 transition-all duration-500 hover:-translate-y-0.5 hover:bg-ivory-100"
-            >
-              Falar agora no WhatsApp
-              <ArrowRight className="h-4 w-4" strokeWidth={1.6} />
-            </a>
+            <span data-magnetic="0.25" className="inline-flex">
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 border border-ivory-100/40 bg-ivory-50 px-8 py-4 font-sans text-xs uppercase tracking-[0.2em] text-ink-950 transition-all duration-500 hover:-translate-y-0.5 hover:bg-ivory-100"
+              >
+                Falar agora no WhatsApp
+                <ArrowRight className="h-4 w-4" strokeWidth={1.6} />
+              </a>
+            </span>
           </div>
         </div>
       </section>
@@ -494,16 +510,12 @@ export default function Home() {
         <div className="mx-auto max-w-container px-6">
           <div className="flex flex-col items-center gap-7 text-center">
             <span className="relative inline-flex">
-              <span
-                aria-hidden
-                className="logo-halo absolute -inset-5 rounded-full bg-[#c5a86c]/40 blur-2xl"
-              />
               <Image
-                src="/fotos/logo.png"
+                src="/fotos/brand.png"
                 alt={COMPANY.fullName}
-                width={176}
-                height={176}
-                className="relative h-40 w-40 rounded-full object-cover ring-1 ring-ink-900/15"
+                width={329}
+                height={240}
+                className="relative h-32 w-auto object-contain"
               />
             </span>
             <p className="max-w-md font-serif text-xl italic text-ink-700">
