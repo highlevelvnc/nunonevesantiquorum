@@ -1,0 +1,255 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --emerald-line: linear-gradient(
+    90deg,
+    transparent,
+    rgba(47, 157, 114, 0.1) 14%,
+    rgba(67, 199, 141, 0.75) 50%,
+    rgba(47, 157, 114, 0.1) 86%,
+    transparent
+  );
+}
+
+html,
+body {
+  overflow-x: clip;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #08120d;
+  color: #cfe0d6;
+  font-feature-settings: "liga" 1, "kern" 1, "ss01" 1;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(67, 199, 141, 0.3);
+  color: #fff;
+}
+
+/* ---- Scroll reveal: visible-by-default + IO + fallback (ver ScrollRevealInit) ---- */
+[data-revealed="false"] {
+  opacity: 0;
+  transform: translate3d(0, 26px, 0);
+}
+[data-revealed="false"][data-reveal="left"] {
+  transform: translate3d(-40px, 0, 0);
+}
+[data-revealed="false"][data-reveal="right"] {
+  transform: translate3d(40px, 0, 0);
+}
+[data-revealed="false"][data-reveal="scale"] {
+  transform: scale(0.94);
+}
+[data-reveal] {
+  transition: opacity 0.95s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  [data-revealed="false"] {
+    opacity: 1;
+    transform: none;
+  }
+  [data-reveal] {
+    transition: none;
+  }
+}
+
+@layer components {
+  /* Texto com gradiente dourado champanhe */
+  .text-champagne {
+    background: linear-gradient(
+      168deg,
+      #f7efdc 0%,
+      #e6cfa0 38%,
+      #c9a86a 70%,
+      #e6cfa0 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Texto com gradiente esmeralda */
+  .text-emerald-grad {
+    background: linear-gradient(140deg, #9be9c7 0%, #43c78d 55%, #2f9d72 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  /* Linha fina luminosa */
+  .hairline {
+    height: 1px;
+    width: 100%;
+    background: var(--emerald-line);
+  }
+
+  /* Superfície de vidro escuro translúcido com borda luminosa subtil */
+  .glass {
+    background: linear-gradient(
+      160deg,
+      rgba(22, 51, 38, 0.62),
+      rgba(11, 26, 19, 0.5)
+    );
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(67, 199, 141, 0.14);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.05),
+      0 24px 60px -34px rgba(0, 0, 0, 0.8);
+  }
+  .glass-soft {
+    background: linear-gradient(
+      160deg,
+      rgba(17, 40, 29, 0.55),
+      rgba(8, 18, 13, 0.45)
+    );
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(67, 199, 141, 0.1);
+  }
+
+  /* Etiqueta superior (kicker) moderna */
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--font-inter), sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.26em;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: #6fdcab;
+  }
+  .kicker::before {
+    content: "";
+    width: 26px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #2f9d72, #43c78d);
+  }
+
+  /* Botão principal — esmeralda luminoso */
+  .btn-primary {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    padding: 0.95rem 1.9rem;
+    border-radius: 999px;
+    font-family: var(--font-display), sans-serif;
+    font-size: 0.92rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: #07140d;
+    background: linear-gradient(135deg, #6fdcab 0%, #2f9d72 60%, #1f7a59 100%);
+    border: 1px solid rgba(155, 233, 199, 0.5);
+    box-shadow: 0 14px 40px -16px rgba(47, 157, 114, 0.7);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.45s ease, filter 0.45s ease;
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 22px 55px -16px rgba(67, 199, 141, 0.85);
+    filter: brightness(1.05);
+  }
+
+  /* Botão secundário — vidro com borda champanhe */
+  .btn-glass {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem;
+    padding: 0.95rem 1.9rem;
+    border-radius: 999px;
+    font-family: var(--font-display), sans-serif;
+    font-size: 0.92rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: #f0e3c4;
+    background: rgba(17, 40, 29, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(217, 189, 134, 0.28);
+    transition: border-color 0.4s ease, background 0.4s ease,
+      color 0.4s ease, transform 0.4s ease;
+  }
+  .btn-glass:hover {
+    border-color: rgba(230, 207, 160, 0.7);
+    background: rgba(28, 64, 47, 0.55);
+    color: #f7efdc;
+    transform: translateY(-2px);
+  }
+
+  /* Badge / chip de vidro */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    font-family: var(--font-inter), sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: #cfe0d6;
+    background: rgba(17, 40, 29, 0.55);
+    border: 1px solid rgba(67, 199, 141, 0.2);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  /* Grão / ruído subtil */
+  .bg-grain {
+    background-image: radial-gradient(
+      rgba(255, 255, 255, 0.02) 1px,
+      transparent 1px
+    );
+    background-size: 3px 3px;
+  }
+  /* Gradientes radiais ambientais (esmeralda/dourado muito ténues) */
+  .ambient-glow {
+    background:
+      radial-gradient(
+        42rem 30rem at 80% -5%,
+        rgba(47, 157, 114, 0.16),
+        transparent 70%
+      ),
+      radial-gradient(
+        38rem 28rem at 8% 18%,
+        rgba(217, 189, 134, 0.07),
+        transparent 65%
+      );
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 11px;
+}
+::-webkit-scrollbar-track {
+  background: #0b1a13;
+}
+::-webkit-scrollbar-thumb {
+  background: #175e45;
+  border: 3px solid #0b1a13;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #1f7a59;
+}

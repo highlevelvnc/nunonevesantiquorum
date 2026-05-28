@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --hair: rgba(27, 25, 22, 0.14);
+  --hair-strong: rgba(27, 25, 22, 0.28);
+  --brass: #9c7b3c;
+}
+
+html,
+body {
+  overflow-x: clip;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f8f4ec;
+  color: #1b1916;
+  font-feature-settings: "liga" 1, "kern" 1;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: rgba(156, 123, 60, 0.22);
+  color: #141210;
+}
+
+/* ---- Scroll reveal: visible-by-default + IO + fallback (ver ScrollRevealInit) ---- */
+[data-revealed="false"] {
+  opacity: 0;
+  transform: translate3d(0, 26px, 0);
+}
+[data-revealed="false"][data-reveal="left"] {
+  transform: translate3d(-40px, 0, 0);
+}
+[data-revealed="false"][data-reveal="right"] {
+  transform: translate3d(40px, 0, 0);
+}
+[data-revealed="false"][data-reveal="scale"] {
+  transform: scale(0.94);
+}
+[data-reveal] {
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  [data-revealed="false"] {
+    opacity: 1;
+    transform: none;
+  }
+  [data-reveal] {
+    transition: none;
+  }
+}
+
+@layer components {
+  /* Kicker editorial — label maiúsculas com tracking largo */
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.85rem;
+    font-family: var(--font-work-sans), sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.34em;
+    font-size: 0.68rem;
+    font-weight: 500;
+    color: #9c7b3c;
+  }
+  .kicker::before {
+    content: "";
+    width: 2rem;
+    height: 1px;
+    background: #b8934e;
+  }
+  .kicker--center::after {
+    content: "";
+    width: 2rem;
+    height: 1px;
+    background: #b8934e;
+  }
+
+  /* Filete fino (1px) horizontal */
+  .hairline {
+    height: 1px;
+    width: 100%;
+    background: var(--hair);
+  }
+
+  /* Numeração de "lote" em serif */
+  .lot-number {
+    font-family: var(--font-cormorant), Georgia, serif;
+    font-feature-settings: "lnum" 1;
+    font-weight: 500;
+    line-height: 1;
+    color: #b8934e;
+  }
+
+  /* Botão sólido — carvão, sensação de catálogo institucional */
+  .btn-ink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 1rem 2.1rem;
+    font-family: var(--font-work-sans), sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: #f8f4ec;
+    background: #1b1916;
+    border: 1px solid #1b1916;
+    transition: background 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+      color 0.45s ease, transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .btn-ink:hover {
+    background: #5c2a26;
+    border-color: #5c2a26;
+    transform: translateY(-2px);
+  }
+
+  /* Botão contorno fino — papel */
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 1rem 2.1rem;
+    font-family: var(--font-work-sans), sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: #1b1916;
+    background: transparent;
+    border: 1px solid var(--hair-strong);
+    transition: border-color 0.45s ease, color 0.45s ease,
+      background 0.45s ease;
+  }
+  .btn-outline:hover {
+    border-color: #9c7b3c;
+    color: #9c7b3c;
+  }
+
+  /* Link com underline que se revela (micro-interação subtil) */
+  .link-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    height: 1px;
+    width: 100%;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .link-underline:hover::after {
+    transform: scaleX(1);
+  }
+
+  /* Moldura fina de catálogo — borda + passe-partout interior */
+  .frame-fine {
+    position: relative;
+    padding: 0.55rem;
+    background: #fdfbf6;
+    border: 1px solid var(--hair);
+    box-shadow: 0 30px 60px -38px rgba(20, 18, 16, 0.4);
+  }
+  .frame-fine__inner {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--hair);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-pretty {
+    text-wrap: pretty;
+  }
+  /* Textura de papel subtil para faixas claras */
+  .bg-paper {
+    background-color: #f8f4ec;
+    background-image: radial-gradient(
+      rgba(27, 25, 22, 0.025) 1px,
+      transparent 1px
+    );
+    background-size: 4px 4px;
+  }
+  .digits-lining {
+    font-feature-settings: "lnum" 1;
+  }
+}
+
+/* Scrollbar — clara */
+::-webkit-scrollbar {
+  width: 11px;
+}
+::-webkit-scrollbar-track {
+  background: #efe7d8;
+}
+::-webkit-scrollbar-thumb {
+  background: #c5a86c;
+  border: 3px solid #efe7d8;
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #9c7b3c;
+}
