@@ -9,6 +9,7 @@ import {
   ChevronDown,
 } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
+import CountUp from "@/components/CountUp";
 import {
   COMPANY,
   STATS,
@@ -152,7 +153,7 @@ export default function Home() {
               } ${i % 2 !== 0 ? "border-l border-ink-900/10 md:border-l" : ""}`}
             >
               <div className="lot-number text-4xl text-ink-900 sm:text-5xl">
-                {s.value}
+                <CountUp value={s.value} />
               </div>
               <div className="mt-3 max-w-[10rem] font-sans text-[0.62rem] uppercase leading-snug tracking-wider3 text-ink-500">
                 {s.label}
@@ -209,6 +210,10 @@ export default function Home() {
                       className="object-cover transition-transform duration-[1300ms] ease-editorial group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-ink-950/10 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                    <span
+                      aria-hidden
+                      className="pointer-events-none absolute inset-0 -translate-x-full skew-x-12 bg-gradient-to-r from-transparent via-white/35 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
+                    />
                     <span className="absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full bg-ivory-50/0 text-ivory-50 opacity-0 transition-all duration-500 group-hover:bg-ivory-50 group-hover:text-ink-900 group-hover:opacity-100">
                       <ArrowUpRight className="h-4 w-4" strokeWidth={1.6} />
                     </span>

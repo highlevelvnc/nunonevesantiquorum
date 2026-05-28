@@ -16,6 +16,7 @@ import {
   Sparkles,
 } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
+import CountUp from "@/components/CountUp";
 import {
   COMPANY,
   STATS,
@@ -167,7 +168,7 @@ export default function Home() {
                 className="relative px-4 text-center md:border-l md:border-emerald-600/15 md:first:border-l-0"
               >
                 <div className="font-display text-3xl font-semibold text-champagne sm:text-[2.6rem]">
-                  {s.value}
+                  <CountUp value={s.value} />
                 </div>
                 <div className="mt-1.5 font-sans text-[0.72rem] font-medium uppercase tracking-wider2 text-ink-300">
                   {s.label}
@@ -222,6 +223,10 @@ export default function Home() {
                   className="object-cover transition-transform duration-[1100ms] ease-out group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-forest-950 via-forest-950/35 to-transparent transition-opacity duration-500 group-hover:from-forest-950/95" />
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 -translate-x-full skew-x-12 bg-gradient-to-r from-transparent via-white/15 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
+                />
                 <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-5">
                   <div>
                     <h3 className="font-display text-lg font-semibold leading-tight text-ink-100">

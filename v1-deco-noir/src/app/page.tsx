@@ -14,6 +14,7 @@ import {
   BadgeEuro,
 } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
+import CountUp from "@/components/CountUp";
 import {
   COMPANY,
   STATS,
@@ -102,7 +103,9 @@ export default function Home() {
         <div className="mx-auto grid max-w-container grid-cols-2 gap-y-8 px-6 py-12 md:grid-cols-4 md:divide-x md:divide-gold-800/40">
           {STATS.map((s, i) => (
             <div key={i} data-reveal data-reveal-delay={`${i * 80}`} className="px-4 text-center">
-              <div className="font-display text-3xl font-bold text-gold sm:text-4xl">{s.value}</div>
+              <div className="font-display text-3xl font-bold text-gold sm:text-4xl">
+                <CountUp value={s.value} />
+              </div>
               <div className="mt-2 font-sans text-[0.72rem] uppercase tracking-wider2 text-gold-100/55">
                 {s.label}
               </div>
@@ -150,6 +153,10 @@ export default function Home() {
                   className="object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-noir-950 via-noir-950/35 to-transparent transition-opacity duration-500 group-hover:from-noir-950/95" />
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0 -translate-x-full skew-x-12 bg-gradient-to-r from-transparent via-gold-100/20 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
+                />
                 <div className="absolute inset-x-0 bottom-0 p-5">
                   <h3 className="font-display text-lg font-semibold leading-tight text-gold-100">
                     {c.name}
