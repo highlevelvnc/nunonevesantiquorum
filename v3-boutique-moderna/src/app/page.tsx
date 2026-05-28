@@ -494,13 +494,13 @@ export default function Home() {
         <div className="mx-auto max-w-container px-5 sm:px-6">
           <div className="flex flex-col items-center gap-6 text-center">
             <span className="relative">
-              <span className="absolute -inset-2 rounded-full bg-emerald-500/20 blur-lg" />
+              <span className="glow-breathe absolute -inset-3 rounded-full bg-emerald-500/25 blur-lg" />
               <Image
                 src="/fotos/logo.png"
                 alt={COMPANY.fullName}
-                width={76}
-                height={76}
-                className="relative h-[4.5rem] w-[4.5rem] rounded-full object-cover ring-1 ring-champagne-300/50"
+                width={160}
+                height={160}
+                className="relative h-36 w-36 rounded-full object-cover ring-1 ring-champagne-300/50"
               />
             </span>
             <p className="max-w-md font-serif text-lg italic text-ink-200/80">

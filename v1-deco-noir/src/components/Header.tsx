@@ -33,19 +33,25 @@ export default function Header() {
     >
       <div className="mx-auto flex max-w-container items-center justify-between px-5 sm:px-8">
         <a href="#inicio" className="flex items-center gap-3" aria-label={COMPANY.fullName}>
-          <Image
-            src="/fotos/logo.png"
-            alt={COMPANY.fullName}
-            width={48}
-            height={48}
-            className="h-11 w-11 rounded-full object-cover ring-1 ring-gold-600/50"
-            priority
-          />
+          <span className="relative inline-flex">
+            <span
+              aria-hidden
+              className="absolute -inset-1.5 rounded-full bg-gold-500/20 blur-md"
+            />
+            <Image
+              src="/fotos/logo.png"
+              alt={COMPANY.fullName}
+              width={96}
+              height={96}
+              className="relative h-[5.5rem] w-[5.5rem] rounded-full object-cover ring-1 ring-gold-600/50"
+              priority
+            />
+          </span>
           <span className="hidden flex-col leading-none sm:flex">
-            <span className="font-display text-base font-bold tracking-wider2 text-gold-200">
+            <span className="font-display text-xl font-bold tracking-wider2 text-gold-200">
               NUNO NEVES
             </span>
-            <span className="font-sans text-[0.6rem] uppercase tracking-widest2 text-gold-500">
+            <span className="font-sans text-[0.7rem] uppercase tracking-widest2 text-gold-500">
               Antiquorum
             </span>
           </span>

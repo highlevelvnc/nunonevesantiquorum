@@ -297,3 +297,25 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #9c7b3c;
 }
+
+/* ---- Halo latão suave a respirar atrás do logótipo ---- */
+.logo-halo {
+  animation: haloPulse 7.5s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+@keyframes haloPulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.65;
+    transform: scale(1.08);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-halo {
+    animation: none;
+  }
+}

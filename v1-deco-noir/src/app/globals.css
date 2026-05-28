@@ -415,6 +415,28 @@ body {
   }
 }
 
+/* ---- Halo dourado a respirar atrás do crest/logótipo ---- */
+.logo-halo {
+  animation: haloPulse 7s ease-in-out infinite;
+  will-change: opacity, transform;
+}
+@keyframes haloPulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.09);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo-halo {
+    animation: none;
+  }
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 11px;

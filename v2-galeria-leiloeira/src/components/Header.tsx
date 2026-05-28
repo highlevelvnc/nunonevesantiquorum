@@ -40,16 +40,16 @@ export default function Header() {
           <Image
             src="/fotos/logo.png"
             alt={COMPANY.fullName}
-            width={48}
-            height={48}
-            className="h-11 w-11 rounded-full object-cover ring-1 ring-ink-900/10"
+            width={96}
+            height={96}
+            className="h-[5.5rem] w-[5.5rem] rounded-full object-cover ring-1 ring-ink-900/10"
             priority
           />
           <span className="hidden flex-col leading-none sm:flex">
-            <span className="font-display text-base font-semibold tracking-wide2 text-ink-900">
+            <span className="font-display text-xl font-semibold tracking-wide2 text-ink-900">
               Nuno Neves
             </span>
-            <span className="mt-1 font-sans text-[0.58rem] uppercase tracking-widest3 text-brass-500">
+            <span className="mt-1 font-sans text-[0.68rem] uppercase tracking-widest3 text-brass-500">
               Antiquorum
             </span>
           </span>

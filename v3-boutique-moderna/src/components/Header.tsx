@@ -43,21 +43,21 @@ export default function Header() {
             aria-label={COMPANY.fullName}
           >
             <span className="relative">
-              <span className="absolute -inset-1 rounded-full bg-emerald-500/25 blur-md" />
+              <span className="absolute -inset-2 rounded-full bg-emerald-500/25 blur-md" />
               <Image
                 src="/fotos/logo.png"
                 alt={COMPANY.fullName}
-                width={44}
-                height={44}
-                className="relative h-10 w-10 rounded-full object-cover ring-1 ring-champagne-300/50"
+                width={88}
+                height={88}
+                className="relative h-20 w-20 rounded-full object-cover ring-1 ring-champagne-300/50"
                 priority
               />
             </span>
             <span className="hidden flex-col leading-none sm:flex">
-              <span className="font-display text-[0.95rem] font-semibold tracking-tight text-ink-100">
+              <span className="font-display text-xl font-semibold tracking-tight text-ink-100">
                 Nuno Neves
               </span>
-              <span className="font-sans text-[0.6rem] font-medium uppercase tracking-widest2 text-emerald-300">
+              <span className="font-sans text-[0.7rem] font-medium uppercase tracking-widest2 text-emerald-300">
                 Antiquorum
               </span>
             </span>

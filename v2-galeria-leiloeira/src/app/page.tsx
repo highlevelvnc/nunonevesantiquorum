@@ -25,7 +25,7 @@ export default function Home() {
       {/* ============ HERO ============ */}
       <section
         id="inicio"
-        className="relative overflow-hidden bg-ivory-100 pb-16 pt-32 sm:pb-24 sm:pt-40"
+        className="relative overflow-hidden bg-ivory-100 pb-16 pt-36 sm:pb-24 sm:pt-44"
       >
         {/* filete superior decorativo */}
         <div className="pointer-events-none absolute inset-x-0 top-[5.5rem] mx-auto hidden h-px max-w-container bg-ink-900/10 lg:block" />
@@ -488,13 +488,19 @@ export default function Home() {
       <footer className="border-t border-ink-900/10 bg-ivory-50 py-16">
         <div className="mx-auto max-w-container px-6">
           <div className="flex flex-col items-center gap-7 text-center">
-            <Image
-              src="/fotos/logo.png"
-              alt={COMPANY.fullName}
-              width={80}
-              height={80}
-              className="h-20 w-20 rounded-full object-cover ring-1 ring-ink-900/10"
-            />
+            <span className="relative inline-flex">
+              <span
+                aria-hidden
+                className="logo-halo absolute -inset-5 rounded-full bg-[#c5a86c]/40 blur-2xl"
+              />
+              <Image
+                src="/fotos/logo.png"
+                alt={COMPANY.fullName}
+                width={176}
+                height={176}
+                className="relative h-40 w-40 rounded-full object-cover ring-1 ring-ink-900/15"
+              />
+            </span>
             <p className="max-w-md font-serif text-xl italic text-ink-700">
               “{COMPANY.tagline}”
             </p>

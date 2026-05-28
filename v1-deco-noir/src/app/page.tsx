@@ -353,13 +353,19 @@ export default function Home() {
       <footer className="border-t border-gold-800/40 bg-noir-950 py-14">
         <div className="mx-auto max-w-container px-6">
           <div className="flex flex-col items-center gap-6 text-center">
-            <Image
-              src="/fotos/logo.png"
-              alt={COMPANY.fullName}
-              width={80}
-              height={80}
-              className="h-20 w-20 rounded-full object-cover ring-1 ring-gold-600/50"
-            />
+            <span className="relative inline-flex">
+              <span
+                aria-hidden
+                className="logo-halo absolute -inset-5 rounded-full bg-gold-500/25 blur-2xl"
+              />
+              <Image
+                src="/fotos/logo.png"
+                alt={COMPANY.fullName}
+                width={176}
+                height={176}
+                className="relative h-40 w-40 rounded-full object-cover ring-1 ring-gold-600/60"
+              />
+            </span>
             <p className="max-w-md font-serif text-lg italic text-gold-100/70">
               “{COMPANY.tagline}”
             </p>
