@@ -138,7 +138,7 @@ export default function Home() {
                 key={c.name}
                 data-reveal
                 data-reveal-delay={`${(i % 4) * 70}`}
-                className="group relative aspect-[4/5] overflow-hidden frame-deco"
+                className="group relative aspect-[4/5] overflow-hidden frame-deco transition-shadow duration-500 hover:shadow-[0_28px_70px_-30px_rgba(216,183,102,0.5)]"
               >
                 <Image
                   src={c.img}

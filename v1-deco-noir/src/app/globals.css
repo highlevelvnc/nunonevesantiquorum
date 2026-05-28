@@ -193,6 +193,171 @@ body {
   }
 }
 
+/* ---- Sheen dourado nos botões (passagem de luz no hover) ---- */
+.btn-gold {
+  overflow: hidden;
+}
+.btn-gold::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -135%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+  transform: skewX(-18deg);
+  transition: left 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+.btn-gold:hover::after {
+  left: 135%;
+}
+
+/* ---- Loader / cortina de entrada Art Déco (CSS puro auto-dispensável) ---- */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  background: #070608;
+  animation: loaderOut 0.7s cubic-bezier(0.16, 1, 0.3, 1) 1.5s forwards;
+}
+.loader::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 620px;
+  height: 620px;
+  transform: translate(-50%, -50%);
+  background: repeating-conic-gradient(
+    from 0deg,
+    rgba(200, 162, 78, 0.1) 0deg 1.4deg,
+    transparent 1.4deg 9deg
+  );
+  -webkit-mask-image: radial-gradient(circle, #000 0%, transparent 64%);
+  mask-image: radial-gradient(circle, #000 0%, transparent 64%);
+  opacity: 0;
+  animation: loaderFade 1.1s ease 0.1s forwards;
+}
+.loader__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1.5rem;
+}
+.loader__rule {
+  height: 1px;
+  width: min(72vw, 360px);
+  background: var(--gold-line);
+  transform: scaleX(0);
+  animation: loaderRule 0.95s cubic-bezier(0.16, 1, 0.3, 1) 0.15s forwards;
+}
+.loader__name {
+  font-family: var(--font-cinzel), serif;
+  font-weight: 600;
+  font-size: clamp(2rem, 7vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: 0.06em;
+  background: linear-gradient(
+    176deg,
+    #fbf3d4 0%,
+    #ecd596 30%,
+    #c8a24e 58%,
+    #a8812f 78%,
+    #e6cd88 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0;
+  transform: translateY(14px);
+  animation: loaderName 0.85s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+}
+.loader__sub {
+  font-family: var(--font-cinzel), serif;
+  font-size: clamp(0.62rem, 2.2vw, 0.82rem);
+  letter-spacing: 0.56em;
+  text-indent: 0.56em;
+  color: #d8b766;
+  opacity: 0;
+  animation: loaderFade 0.8s ease 0.55s forwards;
+}
+.loader__bar {
+  margin-top: 0.5rem;
+  width: min(48vw, 180px);
+  height: 1px;
+  background: rgba(200, 162, 78, 0.16);
+  position: relative;
+  overflow: hidden;
+}
+.loader__bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform-origin: left;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, #a8812f, #f3e6b8, #a8812f);
+  animation: loaderBar 1.25s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+}
+@keyframes loaderRule {
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes loaderName {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes loaderFade {
+  to {
+    opacity: 1;
+  }
+}
+@keyframes loaderBar {
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes loaderOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .loader {
+    display: none;
+  }
+}
+
+/* ---- Barra de progresso de leitura ---- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: linear-gradient(90deg, #a8812f, #f3e6b8 55%, #c8a24e);
+  box-shadow: 0 0 12px -2px rgba(216, 183, 102, 0.6);
+  z-index: 150;
+  pointer-events: none;
+  will-change: transform;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 11px;

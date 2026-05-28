@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import WhatsappButton from "@/components/WhatsappButton";
 import ScrollRevealInit from "@/components/ScrollRevealInit";
+import ScrollProgress from "@/components/ScrollProgress";
 import { COMPANY } from "@/lib/constants";
 
 const playfair = Playfair_Display({
@@ -80,6 +81,7 @@ export default function RootLayout({
       className={`${playfair.variable} ${cormorant.variable} ${workSans.variable}`}
     >
       <body className="bg-ivory-100 font-sans text-ink-900 antialiased">
+        <ScrollProgress />
         <Header />
         {children}
         <WhatsappButton />

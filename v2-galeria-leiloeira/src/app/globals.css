@@ -208,6 +208,47 @@ body {
   }
 }
 
+/* ---- Sheen subtil no botão ink (passagem de luz no hover) ---- */
+.btn-ink {
+  position: relative;
+  overflow: hidden;
+}
+.btn-ink::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -135%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.22),
+    transparent
+  );
+  transform: skewX(-18deg);
+  transition: left 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+.btn-ink:hover::after {
+  left: 135%;
+}
+
+/* ---- Barra de progresso de leitura ---- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: linear-gradient(90deg, #9c7b3c, #c5a86c 55%, #5c2a26);
+  z-index: 150;
+  pointer-events: none;
+  will-change: transform;
+}
+
 /* Scrollbar — clara */
 ::-webkit-scrollbar {
   width: 11px;

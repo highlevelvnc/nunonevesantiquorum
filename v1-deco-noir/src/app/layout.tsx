@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "@/components/Header";
 import WhatsappButton from "@/components/WhatsappButton";
 import ScrollRevealInit from "@/components/ScrollRevealInit";
+import ScrollProgress from "@/components/ScrollProgress";
+import Loader from "@/components/Loader";
 import { COMPANY } from "@/lib/constants";
 
 const cinzel = Cinzel({
@@ -79,6 +81,8 @@ export default function RootLayout({
       className={`${cinzel.variable} ${jost.variable} ${cormorant.variable}`}
     >
       <body className="bg-noir-950 font-sans antialiased">
+        <Loader />
+        <ScrollProgress />
         <Header />
         {children}
         <WhatsappButton />

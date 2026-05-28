@@ -238,6 +238,147 @@ body {
   }
 }
 
+/* ---- Sheen luminoso no botão principal (hover) ---- */
+.btn-primary {
+  overflow: hidden;
+}
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -135%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.45),
+    transparent
+  );
+  transform: skewX(-18deg);
+  transition: left 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+.btn-primary:hover::after {
+  left: 135%;
+}
+
+/* ---- Ecrã de carregamento moderno (CSS puro auto-dispensável) ---- */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(
+      38rem 28rem at 50% 32%,
+      rgba(47, 157, 114, 0.18),
+      transparent 70%
+    ),
+    #08120d;
+  animation: loaderOut 0.6s cubic-bezier(0.16, 1, 0.3, 1) 1.55s forwards;
+}
+.loader__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.35rem;
+  padding: 0 1.5rem;
+  text-align: center;
+}
+.loader__ring {
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(67, 199, 141, 0.16);
+  border-top-color: #6fdcab;
+  box-shadow: 0 0 26px -6px rgba(67, 199, 141, 0.5);
+  animation: loaderSpin 0.85s linear infinite;
+}
+.loader__name {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-weight: 500;
+  font-size: clamp(1.35rem, 4.6vw, 2.1rem);
+  letter-spacing: 0.02em;
+  color: #eef5f0;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: loaderName 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards;
+}
+.loader__name em {
+  font-family: var(--font-fraunces), serif;
+  font-style: italic;
+  font-weight: 400;
+  background: linear-gradient(168deg, #f7efdc 0%, #e6cfa0 45%, #c9a86a 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.loader__bar {
+  width: min(52vw, 190px);
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(67, 199, 141, 0.14);
+  position: relative;
+  overflow: hidden;
+}
+.loader__bar::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform-origin: left;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, #2f9d72, #6fdcab, #e6cfa0);
+  animation: loaderBar 1.3s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+}
+@keyframes loaderSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes loaderName {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes loaderBar {
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes loaderOut {
+  to {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .loader {
+    display: none;
+  }
+  .loader__ring {
+    animation: none;
+  }
+}
+
+/* ---- Barra de progresso de leitura ---- */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: linear-gradient(90deg, #2f9d72, #6fdcab 55%, #e6cfa0);
+  box-shadow: 0 0 12px -2px rgba(67, 199, 141, 0.65);
+  z-index: 150;
+  pointer-events: none;
+  will-change: transform;
+}
+
 /* Scrollbar */
 ::-webkit-scrollbar {
   width: 11px;

@@ -4,6 +4,8 @@ import "./globals.css";
 import Header from "@/components/Header";
 import WhatsappButton from "@/components/WhatsappButton";
 import ScrollRevealInit from "@/components/ScrollRevealInit";
+import ScrollProgress from "@/components/ScrollProgress";
+import Loader from "@/components/Loader";
 import { COMPANY } from "@/lib/constants";
 
 const spaceGrotesk = Space_Grotesk({
@@ -79,6 +81,8 @@ export default function RootLayout({
       className={`${spaceGrotesk.variable} ${inter.variable} ${fraunces.variable}`}
     >
       <body className="bg-forest-950 font-sans antialiased">
+        <Loader />
+        <ScrollProgress />
         <Header />
         {children}
         <WhatsappButton />

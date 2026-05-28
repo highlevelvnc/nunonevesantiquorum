@@ -200,7 +200,7 @@ export default function Home() {
                 className="group"
               >
                 <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer">
-                  <div className="relative aspect-[5/6] overflow-hidden bg-ivory-200">
+                  <div className="relative aspect-[5/6] overflow-hidden bg-ivory-200 shadow-[0_18px_40px_-30px_rgba(20,18,16,0.4)] transition-shadow duration-500 group-hover:shadow-[0_34px_64px_-30px_rgba(20,18,16,0.5)]">
                     <Image
                       src={c.img}
                       alt={c.name}
